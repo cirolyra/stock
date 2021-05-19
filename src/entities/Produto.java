@@ -2,21 +2,31 @@ package entities;
 
 public class Produto {
 	
-	public String nomeProduto;
-	public double precoProduto;
-	public int quantidadeEstoque;
+	public String nome;
+	public double preco;
+	public int quantidade;
 
 	public double TotalValueInStock() {
-		return precoProduto * quantidadeEstoque;
+		return preco * quantidade;
 	}
 
 	public void AddProducts(int quantity) {
-		this.quantidadeEstoque += quantity;
+		this.quantidade += quantity;
 	}
 
 	public void RemoveProducts(int quantity) {
-		this.quantidadeEstoque -= quantity;
+		this.quantidade -= quantity;
 	}
 
+	public String toString() {
+		return  "Produto: " 
+				+ nome 
+				+ ", valor: R$ " 
+				+ String.format("%.2f", preco) 
+				+ ", "
+				+ quantidade 
+				+ " unidades, total: R$ " 
+				+ String.format("%.2f", TotalValueInStock()); 
+	}
 
 }
